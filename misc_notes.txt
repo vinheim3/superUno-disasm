@@ -1,0 +1,2 @@
+tilemap dma'd via 2:8910
+tilemap buffer'd via FarBufferFromTileMapSpecAndCoords, eg title screen big kanji at 0:969f

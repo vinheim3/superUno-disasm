@@ -1,0 +1,8 @@
+.vscode/
+build/
+original/
+__pycache__/
+*.sfc
+*.bst
+*.sym
+temp.s
