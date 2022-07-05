@@ -1379,9 +1379,9 @@ br_01_89c1:
 br_01_89dc:
 	sep #ACCU_8                                                  ; $89dc : $e2, $20
 	lda #$0d.b                                                  ; $89de : $a9, $0d
-	sta $0743.w                                                  ; $89e0 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $89e0 : $8d, $43, $07
 	lda #$05.b                                                  ; $89e3 : $a9, $05
-	sta $0745.w                                                  ; $89e5 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $89e5 : $8d, $45, $07
 	lda #$01.b                                                  ; $89e8 : $a9, $01
 	sta $0632.w                                                  ; $89ea : $8d, $32, $06
 	jsr $8c9d.w                                                  ; $89ed : $20, $9d, $8c
@@ -1785,8 +1785,8 @@ br_01_8cb7:
 	tax                                                  ; $8cbb : $aa
 	rep #ACCU_8                                                  ; $8cbc : $c2, $20
 	lda $018d06.l, X                                                  ; $8cbe : $bf, $06, $8d, $01
-	sta $073e.w                                                  ; $8cc2 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $8cc5 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $8cc2 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $8cc5 : $22, $43, $cf, $02
 	rts                                                  ; $8cc9 : $60
 
 
@@ -1979,7 +1979,7 @@ br_01_8e14:
 	sta $0811.w, Y                                                  ; $8e34 : $99, $11, $08
 	rep #ACCU_8                                                  ; $8e37 : $c2, $20
 	lda #$001b.w                                                  ; $8e39 : $a9, $1b, $00
-	sta $073e.w                                                  ; $8e3c : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $8e3c : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $8e3f : $e2, $20
 	stz $06bc.w                                                  ; $8e41 : $9c, $bc, $06
 	stz $069d.w                                                  ; $8e44 : $9c, $9d, $06
@@ -2158,7 +2158,7 @@ br_01_8f63:
 	sta $0814.w, Y                                                  ; $8f88 : $99, $14, $08
 	rep #ACCU_8                                                  ; $8f8b : $c2, $20
 	lda #$001b.w                                                  ; $8f8d : $a9, $1b, $00
-	sta $073e.w                                                  ; $8f90 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $8f90 : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $8f93 : $e2, $20
 	stz $067f.w                                                  ; $8f95 : $9c, $7f, $06
 	stz $06bc.w                                                  ; $8f98 : $9c, $bc, $06
@@ -2492,9 +2492,9 @@ br_01_91a2:
 	jsr Call_01_97be.w                                                  ; $921b : $20, $be, $97
 	sep #ACCU_8                                                  ; $921e : $e2, $20
 	lda #$09.b                                                  ; $9220 : $a9, $09
-	sta $0743.w                                                  ; $9222 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $9222 : $8d, $43, $07
 	lda #$02.b                                                  ; $9225 : $a9, $02
-	sta $0745.w                                                  ; $9227 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $9227 : $8d, $45, $07
 	lda #$01.b                                                  ; $922a : $a9, $01
 	sta $081c.w, Y                                                  ; $922c : $99, $1c, $08
 	jsr $0ff9f3.l                                                  ; $922f : $22, $f3, $f9, $0f
@@ -2756,14 +2756,14 @@ br_01_941f:
 	stz $073d.w                                                  ; $9442 : $9c, $3d, $07
 	sep #ACCU_8                                                  ; $9445 : $e2, $20
 	lda #$09.b                                                  ; $9447 : $a9, $09
-	sta $0743.w                                                  ; $9449 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $9449 : $8d, $43, $07
 	lda #$02.b                                                  ; $944c : $a9, $02
-	sta $0745.w                                                  ; $944e : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $944e : $8d, $45, $07
 	lda #$06.b                                                  ; $9451 : $a9, $06
 	sta $081c.w, Y                                                  ; $9453 : $99, $1c, $08
 	rep #ACCU_8                                                  ; $9456 : $c2, $20
 	lda #$0028.w                                                  ; $9458 : $a9, $28, $00
-	sta $073e.w                                                  ; $945b : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $945b : $8d, $3e, $07
 	brl br_01_8d44                                                  ; $945e : $82, $e3, $f8
 
 	sep #ACCU_8                                                  ; $9461 : $e2, $20
@@ -2954,7 +2954,7 @@ br_01_95b1:
 	sta $0814.w, Y                                                  ; $95d6 : $99, $14, $08
 	rep #ACCU_8                                                  ; $95d9 : $c2, $20
 	lda #$001b.w                                                  ; $95db : $a9, $1b, $00
-	sta $073e.w                                                  ; $95de : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $95de : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $95e1 : $e2, $20
 	stz $06bc.w                                                  ; $95e3 : $9c, $bc, $06
 	stz $069d.w                                                  ; $95e6 : $9c, $9d, $06
@@ -3247,7 +3247,7 @@ Call_01_97be:
 	lda $0197e9.l, X                                                  ; $97dc : $bf, $e9, $97, $01
 	rep #ACCU_8                                                  ; $97e0 : $c2, $20
 	ora #$0100.w                                                  ; $97e2 : $09, $00, $01
-	sta $073e.w                                                  ; $97e5 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $97e5 : $8d, $3e, $07
 	rts                                                  ; $97e8 : $60
 
 
@@ -4311,7 +4311,7 @@ br_01_9f71:
 	sta $081c.w, Y                                                  ; $9f86 : $99, $1c, $08
 	rep #ACCU_8                                                  ; $9f89 : $c2, $20
 	lda #$0179.w                                                  ; $9f8b : $a9, $79, $01
-	sta $073e.w                                                  ; $9f8e : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $9f8e : $8d, $3e, $07
 	bra br_01_9fa5                                                  ; $9f91 : $80, $12
 
 	brl br_01_98a4                                                  ; $9f93 : $82, $0e, $f9
@@ -4321,7 +4321,7 @@ br_01_9f71:
 	sta $081c.w, Y                                                  ; $9f9a : $99, $1c, $08
 	rep #ACCU_8                                                  ; $9f9d : $c2, $20
 	lda #$017a.w                                                  ; $9f9f : $a9, $7a, $01
-	sta $073e.w                                                  ; $9fa2 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $9fa2 : $8d, $3e, $07
 
 br_01_9fa5:
 	rep #ACCU_8                                                  ; $9fa5 : $c2, $20
@@ -4329,12 +4329,12 @@ br_01_9fa5:
 	sta $0703.w                                                  ; $9faa : $8d, $03, $07
 	sep #ACCU_8                                                  ; $9fad : $e2, $20
 	lda #$0d.b                                                  ; $9faf : $a9, $0d
-	sta $0743.w                                                  ; $9fb1 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $9fb1 : $8d, $43, $07
 	lda #$05.b                                                  ; $9fb4 : $a9, $05
-	sta $0745.w                                                  ; $9fb6 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $9fb6 : $8d, $45, $07
 	lda #$01.b                                                  ; $9fb9 : $a9, $01
 	sta $0632.w                                                  ; $9fbb : $8d, $32, $06
-	jsr $02cf43.l                                                  ; $9fbe : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $9fbe : $22, $43, $cf, $02
 	brl br_01_98a4                                                  ; $9fc2 : $82, $df, $f8
 
 	brl br_01_98a4                                                  ; $9fc5 : $82, $dc, $f8
@@ -8859,14 +8859,14 @@ br_01_c205:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $c22f : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $c233 : $e2, $20
 	lda #$0d.b                                                  ; $c235 : $a9, $0d
-	sta $0743.w                                                  ; $c237 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $c237 : $8d, $43, $07
 	lda #$01.b                                                  ; $c23a : $a9, $01
-	sta $0745.w                                                  ; $c23c : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $c23c : $8d, $45, $07
 	stz $0632.w                                                  ; $c23f : $9c, $32, $06
 	rep #ACCU_8                                                  ; $c242 : $c2, $20
 	lda #$019e.w                                                  ; $c244 : $a9, $9e, $01
-	sta $073e.w                                                  ; $c247 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $c24a : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $c247 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $c24a : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $c24e : $e2, $20
 	lda #$06.b                                                  ; $c250 : $a9, $06
 	sta $081c.w, Y                                                  ; $c252 : $99, $1c, $08
@@ -10319,7 +10319,7 @@ br_01_cd41:
 	lda $01cdd5.l, X                                                  ; $cd77 : $bf, $d5, $cd, $01
 	rep #ACCU_8                                                  ; $cd7b : $c2, $20
 	ora #$0100.w                                                  ; $cd7d : $09, $00, $01
-	sta $073e.w                                                  ; $cd80 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $cd80 : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $cd83 : $e2, $20
 	lda $0844.w, Y                                                  ; $cd85 : $b9, $44, $08
 	cmp #$04.b                                                  ; $cd88 : $c9, $04
@@ -10331,7 +10331,7 @@ br_01_cd41:
 
 	rep #ACCU_8                                                  ; $cd93 : $c2, $20
 	lda #$006f.w                                                  ; $cd95 : $a9, $6f, $00
-	sta $073e.w                                                  ; $cd98 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $cd98 : $8d, $3e, $07
 
 br_01_cd9b:
 	rep #ACCU_8                                                  ; $cd9b : $c2, $20
@@ -10340,10 +10340,10 @@ br_01_cd9b:
 	sep #ACCU_8                                                  ; $cda3 : $e2, $20
 	stz $073d.w                                                  ; $cda5 : $9c, $3d, $07
 	lda #$09.b                                                  ; $cda8 : $a9, $09
-	sta $0743.w                                                  ; $cdaa : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $cdaa : $8d, $43, $07
 	lda #$02.b                                                  ; $cdad : $a9, $02
-	sta $0745.w                                                  ; $cdaf : $8d, $45, $07
-	jsr $02cf43.l                                                  ; $cdb2 : $22, $43, $cf, $02
+	sta wTextStartingRow.w                                                  ; $cdaf : $8d, $45, $07
+	jsr Func_2_cf43.l                                                  ; $cdb2 : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $cdb6 : $e2, $20
 	lda #$01.b                                                  ; $cdb8 : $a9, $01
 	sta $067d.w                                                  ; $cdba : $8d, $7d, $06
@@ -10528,16 +10528,16 @@ br_01_cef8:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $cf12 : $22, $fa, $d0, $02
 	rep #ACCU_8                                                  ; $cf16 : $c2, $20
 	lda #$0181.w                                                  ; $cf18 : $a9, $81, $01
-	sta $073e.w                                                  ; $cf1b : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $cf1b : $8d, $3e, $07
 	lda #$0000.w                                                  ; $cf1e : $a9, $00, $00
 	sta $0703.w                                                  ; $cf21 : $8d, $03, $07
 	sep #ACCU_8                                                  ; $cf24 : $e2, $20
 	stz $073d.w                                                  ; $cf26 : $9c, $3d, $07
 	lda #$09.b                                                  ; $cf29 : $a9, $09
-	sta $0743.w                                                  ; $cf2b : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $cf2b : $8d, $43, $07
 	lda #$02.b                                                  ; $cf2e : $a9, $02
-	sta $0745.w                                                  ; $cf30 : $8d, $45, $07
-	jsr $02cf43.l                                                  ; $cf33 : $22, $43, $cf, $02
+	sta wTextStartingRow.w                                                  ; $cf30 : $8d, $45, $07
+	jsr Func_2_cf43.l                                                  ; $cf33 : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $cf37 : $e2, $20
 	stz $073d.w                                                  ; $cf39 : $9c, $3d, $07
 	stz $0632.w                                                  ; $cf3c : $9c, $32, $06
@@ -10985,7 +10985,7 @@ br_01_d234:
 	lda #$0000.w                                                  ; $d2d0 : $a9, $00, $00
 	sep #ACCU_8                                                  ; $d2d3 : $e2, $20
 	lda #$00.b                                                  ; $d2d5 : $a9, $00
-	sta $073e.w                                                  ; $d2d7 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $d2d7 : $8d, $3e, $07
 	jsr Call_01_d2e7.w                                                  ; $d2da : $20, $e7, $d2
 	sep #ACCU_8                                                  ; $d2dd : $e2, $20
 	lda #$02.b                                                  ; $d2df : $a9, $02
@@ -11005,7 +11005,7 @@ br_01_d2f5:
 	ldy #$0000.w                                                  ; $d2f5 : $a0, $00, $00
 	lda #$0000.w                                                  ; $d2f8 : $a9, $00, $00
 	sep #ACCU_8                                                  ; $d2fb : $e2, $20
-	lda $073e.w                                                  ; $d2fd : $ad, $3e, $07
+	lda wTextIdx.w                                                  ; $d2fd : $ad, $3e, $07
 	asl                                                  ; $d300 : $0a
 	tax                                                  ; $d301 : $aa
 	rep #ACCU_8                                                  ; $d302 : $c2, $20
@@ -11617,7 +11617,7 @@ br_01_d65d:
 	lda #$0000.w                                                  ; $d697 : $a9, $00, $00
 	sep #ACCU_8                                                  ; $d69a : $e2, $20
 	lda #$01.b                                                  ; $d69c : $a9, $01
-	sta $073e.w                                                  ; $d69e : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $d69e : $8d, $3e, $07
 	jsr Call_01_d2e7.w                                                  ; $d6a1 : $20, $e7, $d2
 	sep #ACCU_8                                                  ; $d6a4 : $e2, $20
 	lda #$02.b                                                  ; $d6a6 : $a9, $02
@@ -11741,7 +11741,7 @@ br_01_d74e:
 	and #$07.b                                                  ; $d795 : $29, $07
 	clc                                                  ; $d797 : $18
 	adc #$02.b                                                  ; $d798 : $69, $02
-	sta $073e.w                                                  ; $d79a : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $d79a : $8d, $3e, $07
 	jsr Call_01_d2e7.w                                                  ; $d79d : $20, $e7, $d2
 	sep #ACCU_8                                                  ; $d7a0 : $e2, $20
 	lda #$02.b                                                  ; $d7a2 : $a9, $02
@@ -12353,13 +12353,13 @@ br_01_dbff:
 	rep #ACCU_8                                                  ; $dc13 : $c2, $20
 	lda #$0c00.w                                                  ; $dc15 : $a9, $00, $0c
 	sta $0703.w                                                  ; $dc18 : $8d, $03, $07
-	sta $073e.w                                                  ; $dc1b : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $dc1b : $8d, $3e, $07
 	jsr $02baf4.l                                                  ; $dc1e : $22, $f4, $ba, $02
 	sep #ACCU_8                                                  ; $dc22 : $e2, $20
 	lda wTileMapRow.w                                                  ; $dc24 : $ad, $fd, $06
-	sta $0745.w                                                  ; $dc27 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $dc27 : $8d, $45, $07
 	lda #$06.b                                                  ; $dc2a : $a9, $06
-	sta $0743.w                                                  ; $dc2c : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $dc2c : $8d, $43, $07
 	jsr Call_01_de23.w                                                  ; $dc2f : $20, $23, $de
 	sep #ACCU_8                                                  ; $dc32 : $e2, $20
 	lda #$03.b                                                  ; $dc34 : $a9, $03
@@ -12532,7 +12532,7 @@ br_01_dd66:
 
 	rep #ACCU_8                                                  ; $dd6d : $c2, $20
 	lda #$001e.w                                                  ; $dd6f : $a9, $1e, $00
-	sta $073e.w                                                  ; $dd72 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $dd72 : $8d, $3e, $07
 	bra br_01_dd77                                                  ; $dd75 : $80, $00
 
 br_01_dd77:
@@ -12558,13 +12558,13 @@ br_01_dd93:
 	rep #ACCU_8                                                  ; $dda4 : $c2, $20
 	lda #$0c00.w                                                  ; $dda6 : $a9, $00, $0c
 	sta $0703.w                                                  ; $dda9 : $8d, $03, $07
-	sta $073e.w                                                  ; $ddac : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $ddac : $8d, $3e, $07
 	jsr $02baf4.l                                                  ; $ddaf : $22, $f4, $ba, $02
 	sep #ACCU_8                                                  ; $ddb3 : $e2, $20
 	lda wTileMapRow.w                                                  ; $ddb5 : $ad, $fd, $06
-	sta $0745.w                                                  ; $ddb8 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $ddb8 : $8d, $45, $07
 	lda #$06.b                                                  ; $ddbb : $a9, $06
-	sta $0743.w                                                  ; $ddbd : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $ddbd : $8d, $43, $07
 	jsr Call_01_de23.w                                                  ; $ddc0 : $20, $23, $de
 	sep #ACCU_8                                                  ; $ddc3 : $e2, $20
 	lda #$02.b                                                  ; $ddc5 : $a9, $02
@@ -12628,8 +12628,8 @@ Call_01_de23:
 	tax                                                  ; $de2e : $aa
 	rep #ACCU_8                                                  ; $de2f : $c2, $20
 	lda $018d06.l, X                                                  ; $de31 : $bf, $06, $8d, $01
-	sta $073e.w                                                  ; $de35 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $de38 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $de35 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $de38 : $22, $43, $cf, $02
 	rts                                                  ; $de3c : $60
 
 
@@ -12774,7 +12774,7 @@ br_01_df3b:
 	clc                                                  ; $df45 : $18
 	adc #$2a.b                                                  ; $df46 : $69, $2a
 	rep #ACCU_8                                                  ; $df48 : $c2, $20
-	sta $073e.w                                                  ; $df4a : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $df4a : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $df4d : $e2, $20
 	stz $1361.w                                                  ; $df4f : $9c, $61, $13
 	lda #$04.b                                                  ; $df52 : $a9, $04
@@ -13096,10 +13096,10 @@ Call_01_e15f:
 	tax                                                  ; $e171 : $aa
 	lda $01e19c.l, X                                                  ; $e172 : $bf, $9c, $e1, $01
 	sta $062c.w                                                  ; $e176 : $8d, $2c, $06
-	sta $0743.w                                                  ; $e179 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $e179 : $8d, $43, $07
 	lda $01e19d.l, X                                                  ; $e17c : $bf, $9d, $e1, $01
 	sta $062e.w                                                  ; $e180 : $8d, $2e, $06
-	sta $0745.w                                                  ; $e183 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $e183 : $8d, $45, $07
 	stz $0632.w                                                  ; $e186 : $9c, $32, $06
 	plx                                                  ; $e189 : $fa
 	jsr Call_01_8cb0.w                                                  ; $e18a : $20, $b0, $8c
@@ -13270,7 +13270,7 @@ br_01_e2a4:
 	adc #$0064.w                                                  ; $e2c6 : $69, $64, $00
 	sta $0823.w, Y                                                  ; $e2c9 : $99, $23, $08
 	lda #$0028.w                                                  ; $e2cc : $a9, $28, $00
-	sta $073e.w                                                  ; $e2cf : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $e2cf : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $e2d2 : $e2, $20
 	stz $1361.w                                                  ; $e2d4 : $9c, $61, $13
 	lda #$1d.b                                                  ; $e2d7 : $a9, $1d
@@ -13531,8 +13531,8 @@ br_01_e461:
 	phy                                                  ; $e4a5 : $5a
 	txy                                                  ; $e4a6 : $9b
 	sep #ACCU_8                                                  ; $e4a7 : $e2, $20
-	inc $0745.w                                                  ; $e4a9 : $ee, $45, $07
-	inc $0745.w                                                  ; $e4ac : $ee, $45, $07
+	inc wTextStartingRow.w                                                  ; $e4a9 : $ee, $45, $07
+	inc wTextStartingRow.w                                                  ; $e4ac : $ee, $45, $07
 	jsr $17fb22.l                                                  ; $e4af : $22, $22, $fb, $17
 	tyx                                                  ; $e4b3 : $bb
 	rep #IDX_8                                                  ; $e4b4 : $c2, $10
@@ -15244,7 +15244,7 @@ br_01_f1bd:
 	stz $1361.w                                                  ; $f1c2 : $9c, $61, $13
 	rep #ACCU_8                                                  ; $f1c5 : $c2, $20
 	lda #$0029.w                                                  ; $f1c7 : $a9, $29, $00
-	sta $073e.w                                                  ; $f1ca : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $f1ca : $8d, $3e, $07
 
 br_01_f1cd:
 	brl br_01_dad1                                                  ; $f1cd : $82, $01, $e9
@@ -15278,7 +15278,7 @@ br_01_f1fc:
 	stz $1361.w                                                  ; $f201 : $9c, $61, $13
 	rep #ACCU_8                                                  ; $f204 : $c2, $20
 	lda #$0029.w                                                  ; $f206 : $a9, $29, $00
-	sta $073e.w                                                  ; $f209 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $f209 : $8d, $3e, $07
 
 br_01_f20c:
 	brl br_01_dad1                                                  ; $f20c : $82, $c2, $e8

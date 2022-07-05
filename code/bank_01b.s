@@ -11845,7 +11845,7 @@ br_1b_d93d:
 
 	sec                                                  ; $d95e : $38
 	dec $b9                                                  ; $d95f : $c6, $b9
-	cpx $0744.w                                                  ; $d961 : $ec, $44, $07
+	cpx wTextTileMapCol.w                                                  ; $d961 : $ec, $44, $07
 	sta $09                                                  ; $d964 : $85, $09
 	eor $53e67d.l, X                                                  ; $d966 : $5f, $7d, $e6, $53
 	tyx                                                  ; $d96a : $bb

@@ -16053,9 +16053,9 @@ br_0f_f2b1:
 	ldx #$0060.w                                                  ; $f2b6 : $a2, $60, $00
 	sep #ACCU_8                                                  ; $f2b9 : $e2, $20
 	lda #$0e.b                                                  ; $f2bb : $a9, $0e
-	sta $0743.w                                                  ; $f2bd : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $f2bd : $8d, $43, $07
 	lda #$03.b                                                  ; $f2c0 : $a9, $03
-	sta $0745.w                                                  ; $f2c2 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $f2c2 : $8d, $45, $07
 	stz $06a8.w                                                  ; $f2c5 : $9c, $a8, $06
 
 br_0f_f2c8:
@@ -16078,8 +16078,8 @@ br_0f_f2c8:
 	sta $06b0.w, X                                                  ; $f2ed : $9d, $b0, $06
 	plx                                                  ; $f2f0 : $fa
 	sep #ACCU_8                                                  ; $f2f1 : $e2, $20
-	inc $0745.w                                                  ; $f2f3 : $ee, $45, $07
-	inc $0745.w                                                  ; $f2f6 : $ee, $45, $07
+	inc wTextStartingRow.w                                                  ; $f2f3 : $ee, $45, $07
+	inc wTextStartingRow.w                                                  ; $f2f6 : $ee, $45, $07
 	inc $06a8.w                                                  ; $f2f9 : $ee, $a8, $06
 	lda $0676.w                                                  ; $f2fc : $ad, $76, $06
 	dea                                                  ; $f2ff : $3a
@@ -16537,9 +16537,9 @@ br_0f_f60d:
 br_0f_f636:
 	sep #ACCU_8                                                  ; $f636 : $e2, $20
 	lda #$0d.b                                                  ; $f638 : $a9, $0d
-	sta $0743.w                                                  ; $f63a : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $f63a : $8d, $43, $07
 	lda #$01.b                                                  ; $f63d : $a9, $01
-	sta $0745.w                                                  ; $f63f : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $f63f : $8d, $45, $07
 	stz $0632.w                                                  ; $f642 : $9c, $32, $06
 	jsr $0ef2aa.l                                                  ; $f645 : $22, $aa, $f2, $0e
 	sep #ACCU_8                                                  ; $f649 : $e2, $20
@@ -16559,7 +16559,7 @@ br_0f_f636:
 
 br_0f_f662:
 	lda #$03.b                                                  ; $f662 : $a9, $03
-	sta $0745.w                                                  ; $f664 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $f664 : $8d, $45, $07
 	stz $0632.w                                                  ; $f667 : $9c, $32, $06
 	jsr $0ef2e1.l                                                  ; $f66a : $22, $e1, $f2, $0e
 
@@ -16579,7 +16579,7 @@ br_0f_f680:
 	lda #$05.b                                                  ; $f680 : $a9, $05
 
 br_0f_f682:
-	sta $0745.w                                                  ; $f682 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $f682 : $8d, $45, $07
 	stz $0632.w                                                  ; $f685 : $9c, $32, $06
 	jsr $0ef2ff.l                                                  ; $f688 : $22, $ff, $f2, $0e
 
@@ -17033,9 +17033,9 @@ br_0f_f97c:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $f9ac : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $f9b0 : $e2, $20
 	lda #$18.b                                                  ; $f9b2 : $a9, $18
-	sta $0745.w                                                  ; $f9b4 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $f9b4 : $8d, $45, $07
 	lda #$03.b                                                  ; $f9b7 : $a9, $03
-	sta $0743.w                                                  ; $f9b9 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $f9b9 : $8d, $43, $07
 	jsr $01de1f.l                                                  ; $f9bc : $22, $1f, $de, $01
 	rtl                                                  ; $f9c0 : $6b
 
@@ -17732,15 +17732,15 @@ Jump_0f_fe10:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $fe71 : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $fe75 : $e2, $20
 	lda #$05.b                                                  ; $fe77 : $a9, $05
-	sta $0743.w                                                  ; $fe79 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $fe79 : $8d, $43, $07
 	lda #$02.b                                                  ; $fe7c : $a9, $02
-	sta $0745.w                                                  ; $fe7e : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $fe7e : $8d, $45, $07
 	rep #ACCU_8                                                  ; $fe81 : $c2, $20
 
 Jump_0f_fe83:
 	lda #$0027.w                                                  ; $fe83 : $a9, $27, $00
-	sta $073e.w                                                  ; $fe86 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $fe89 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $fe86 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $fe89 : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $fe8d : $e2, $20
 	stz $0632.w                                                  ; $fe8f : $9c, $32, $06
 	lda #$0c.b                                                  ; $fe92 : $a9, $0c

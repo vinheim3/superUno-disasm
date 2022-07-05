@@ -15851,20 +15851,18 @@ br_1a_eda6:
 	adc $89, S                                                  ; $ee43 : $63, $89
 	sta $ff8f8f.l                                                  ; $ee45 : $8f, $8f, $8f, $ff
 	.db $00                                                  ; $ee49 : $00
-	sbc $03ff01.l, X                                                  ; $ee4a : $ff, $01, $ff, $03
-	.db $10, $ea                                                  ; $ee4e : $10, $ea
-
-	lda ($5b), Y                                                  ; $ee50 : $b1, $5b
-	tcd                                                  ; $ee52 : $5b
-	sbc $75cf02.l, X                                                  ; $ee53 : $ff, $02, $cf, $75
-	rts                                                  ; $ee57 : $60
 
 
-	jml [$7472.w]                                                  ; $ee58 : $dc, $72, $74
+Data_1a_ee4a:
+	.db $ff, $01 ; always present - sets plot coords from before engine
+	.db $ff, $03, $10 ; palette == 4
+	.db $ea, $b1, $5b, $5b
+	.db $ff, $02 ; next row
+	.db $cf, $75, $60, $dc, $72, $74, $61, $8f, $8f, $8f
+	.db $ff, $00 ; end
 
 
-	adc ($8f, X)                                                  ; $ee5b : $61, $8f
-	sta $00ff8f.l                                                  ; $ee5d : $8f, $8f, $ff, $00
+Data_1a_ee61:
 	sbc $404001.l, X                                                  ; $ee61 : $ff, $01, $40, $40
 	rti                                                  ; $ee65 : $40
 

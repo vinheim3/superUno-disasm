@@ -15437,10 +15437,20 @@ br_0c_f186:
 	adc ($60), Y                                                  ; $f7c0 : $71, $60
 	sta ($01, X)                                                  ; $f7c2 : $81, $01
 	sbc $e0                                                  ; $f7c4 : $e5, $e0
-	sta $01, S                                                  ; $f7c6 : $83, $01
-	adc ($60)                                                  ; $f7c8 : $72, $60
-	sta ($01, X)                                                  ; $f7ca : $81, $01
-	sbc [$e0]                                                  ; $f7cc : $e7, $e0
+
+
+TileMapSpec0eah:
+	.db $83 ; upper tile idx bits == 3
+	.db $01 ; 1 seq tile
+	.db $72
+	.db $60 ; next row
+	.db $81 ; upper tile idx bits == 1
+	.db $01 ; 1 seq tile
+	.db $e7
+	.db $e0 ; end
+
+
+;
 	sta $01, S                                                  ; $f7ce : $83, $01
 	adc ($60, S), Y                                                  ; $f7d0 : $73, $60
 	sta ($01, X)                                                  ; $f7d2 : $81, $01

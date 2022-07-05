@@ -101,10 +101,43 @@ wTileMapCtrlByteLow5bits: ; $0701
     db
 
 w0702:
-    ds $e00-$702
+    ds $3e-2
 
-wTileMapBufferDestAddr: ; $0e00
-    dl
+wTextIdx: ; $073e
+    dw
+
+wTextSrcOffset: ; $0740
+    dw
+
+wTextFramesTilNextChar: ; $0742
+    db
+
+wTextStartingCol: ; $0743
+    db
+
+wTextTileMapCol: ; $0744
+    db
+
+wTextStartingRow: ; $0745
+    db
+
+wTextTileMapRow: ; $0746
+    db
+
+w0747:
+    ds $e00-$747
+
+.union
+
+    wTileMapBufferDestAddr: ; $0e00
+        dl
+
+.nextu
+
+    wTextEngineSrcAddr: ; $0e00
+        dl
+
+.endu
 
 w0e03:
     ds 6-3

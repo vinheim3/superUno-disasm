@@ -13501,7 +13501,7 @@ br_19_e164:
 	.db $00                                                  ; $e1d9 : $00
 	adc $00fd01.l, X                                                  ; $e1da : $7f, $01, $fd, $00
 	inc $6801.w, X                                                  ; $e1de : $fe, $01, $68
-	tsb $0740.w                                                  ; $e1e1 : $0c, $40, $07
+	tsb wTextSrcOffset.w                                                  ; $e1e1 : $0c, $40, $07
 	sta $60b83e.l                                                  ; $e1e4 : $8f, $3e, $b8, $60
 	asl $73                                                  ; $e1e8 : $06, $73
 	ldy $00d0.w, X                                                  ; $e1ea : $bc, $d0, $00

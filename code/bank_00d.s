@@ -5057,7 +5057,7 @@ br_0d_aac7:
 	cmp $4e4c.w, Y                                                  ; $ab7a : $d9, $4c, $4e
 	cld                                                  ; $ab7d : $d8
 	ora ($97, S), Y                                                  ; $ab7e : $13, $97
-	asl $0745.w                                                  ; $ab80 : $0e, $45, $07
+	asl wTextStartingRow.w                                                  ; $ab80 : $0e, $45, $07
 	ora $fe, S                                                  ; $ab83 : $03, $fe
 	.db $00                                                  ; $ab85 : $00
 	adc ($84)                                                  ; $ab86 : $72, $84

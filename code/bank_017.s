@@ -17161,15 +17161,15 @@ Call_17_f997:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $f9d1 : $22, $fa, $d0, $02
 	rep #ACCU_8                                                  ; $f9d5 : $c2, $20
 	lda #$0174.w                                                  ; $f9d7 : $a9, $74, $01
-	sta $073e.w                                                  ; $f9da : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $f9da : $8d, $3e, $07
 	stz $0703.w                                                  ; $f9dd : $9c, $03, $07
 	sep #ACCU_8                                                  ; $f9e0 : $e2, $20
 	stz $073d.w                                                  ; $f9e2 : $9c, $3d, $07
 	lda #$09.b                                                  ; $f9e5 : $a9, $09
-	sta $0743.w                                                  ; $f9e7 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $f9e7 : $8d, $43, $07
 	lda #$14.b                                                  ; $f9ea : $a9, $14
-	sta $0745.w                                                  ; $f9ec : $8d, $45, $07
-	jsr $02cf43.l                                                  ; $f9ef : $22, $43, $cf, $02
+	sta wTextStartingRow.w                                                  ; $f9ec : $8d, $45, $07
+	jsr Func_2_cf43.l                                                  ; $f9ef : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $f9f3 : $e2, $20
 	stz $073d.w                                                  ; $f9f5 : $9c, $3d, $07
 	stz $0632.w                                                  ; $f9f8 : $9c, $32, $06
@@ -17183,8 +17183,8 @@ Call_17_f997:
 	tax                                                  ; $fa0b : $aa
 	rep #ACCU_8                                                  ; $fa0c : $c2, $20
 	lda $018d06.l, X                                                  ; $fa0e : $bf, $06, $8d, $01
-	sta $073e.w                                                  ; $fa12 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $fa15 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $fa12 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $fa15 : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $fa19 : $e2, $20
 	inc $071d.w                                                  ; $fa1b : $ee, $1d, $07
 	rts                                                  ; $fa1e : $60
@@ -17371,8 +17371,8 @@ Call_17_fb30:
 	tax                                                  ; $fb3a : $aa
 	lda $17fb49.l, X                                                  ; $fb3b : $bf, $49, $fb, $17
 	rep #ACCU_8                                                  ; $fb3f : $c2, $20
-	sta $073e.w                                                  ; $fb41 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $fb44 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $fb41 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $fb44 : $22, $43, $cf, $02
 	rts                                                  ; $fb48 : $60
 
 
@@ -17400,8 +17400,8 @@ Call_17_fb5d:
 	tax                                                  ; $fb71 : $aa
 	lda $17fb80.l, X                                                  ; $fb72 : $bf, $80, $fb, $17
 	rep #ACCU_8                                                  ; $fb76 : $c2, $20
-	sta $073e.w                                                  ; $fb78 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $fb7b : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $fb78 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $fb7b : $22, $43, $cf, $02
 	rts                                                  ; $fb7f : $60
 
 

@@ -3168,13 +3168,13 @@ br_02_952e:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $9596 : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $959a : $e2, $20
 	lda #$05.b                                                  ; $959c : $a9, $05
-	sta $0743.w                                                  ; $959e : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $959e : $8d, $43, $07
 	lda #$10.b                                                  ; $95a1 : $a9, $10
-	sta $0745.w                                                  ; $95a3 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $95a3 : $8d, $45, $07
 	rep #ACCU_8                                                  ; $95a6 : $c2, $20
 	lda $1335.w                                                  ; $95a8 : $ad, $35, $13
-	sta $073e.w                                                  ; $95ab : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $95ae : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $95ab : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $95ae : $22, $43, $cf, $02
 	sep #ACCU_8                                                  ; $95b2 : $e2, $20
 	rts                                                  ; $95b4 : $60
 
@@ -5114,15 +5114,15 @@ Call_02_a38e:
 	lda $02a3bb.l, X                                                  ; $a399 : $bf, $bb, $a3, $02
 	rep #ACCU_8                                                  ; $a39d : $c2, $20
 	ora #$0100.w                                                  ; $a39f : $09, $00, $01
-	sta $073e.w                                                  ; $a3a2 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a3a2 : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $a3a5 : $e2, $20
 	lda #$01.b                                                  ; $a3a7 : $a9, $01
-	sta $0743.w                                                  ; $a3a9 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $a3a9 : $8d, $43, $07
 	lda #$0e.b                                                  ; $a3ac : $a9, $0e
-	sta $0745.w                                                  ; $a3ae : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $a3ae : $8d, $45, $07
 	lda #$01.b                                                  ; $a3b1 : $a9, $01
 	sta $0632.w                                                  ; $a3b3 : $8d, $32, $06
-	jsr $02cf43.l                                                  ; $a3b6 : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a3b6 : $22, $43, $cf, $02
 	rts                                                  ; $a3ba : $60
 
 
@@ -5220,7 +5220,7 @@ br_02_a44f:
 	iny                                                  ; $a451 : $c8
 	bne $2a                                                  ; $a452 : $d0, $2a
 
-	jsr Call_02_d0f0.w                                                  ; $a454 : $20, $f0, $d0
+	jsr $d0f0.w                                                  ; $a454 : $20, $f0, $d0
 	and $0c20.w                                                  ; $a457 : $2d, $20, $0c
 	.db $00                                                  ; $a45a : $00
 	ora ($00), Y                                                  ; $a45b : $11, $00
@@ -5368,14 +5368,14 @@ RLEBlock0:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $a571 : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $a575 : $e2, $20
 	lda #$02.b                                                  ; $a577 : $a9, $02
-	sta $0745.w                                                  ; $a579 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $a579 : $8d, $45, $07
 	lda #$05.b                                                  ; $a57c : $a9, $05
-	sta $0743.w                                                  ; $a57e : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $a57e : $8d, $43, $07
 	rep #ACCU_8                                                  ; $a581 : $c2, $20
 	lda #$004c.w                                                  ; $a583 : $a9, $4c, $00
-	sta $073e.w                                                  ; $a586 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a586 : $8d, $3e, $07
 	php                                                  ; $a589 : $08
-	jsr $02cf43.l                                                  ; $a58a : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a58a : $22, $43, $cf, $02
 	plp                                                  ; $a58e : $28
 	lda #$0001.w                                                  ; $a58f : $a9, $01, $00
 	sta $0806.w                                                  ; $a592 : $8d, $06, $08
@@ -5437,14 +5437,14 @@ br_02_a5d2:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $a611 : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $a615 : $e2, $20
 	lda #$02.b                                                  ; $a617 : $a9, $02
-	sta $0745.w                                                  ; $a619 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $a619 : $8d, $45, $07
 	lda #$05.b                                                  ; $a61c : $a9, $05
-	sta $0743.w                                                  ; $a61e : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $a61e : $8d, $43, $07
 	rep #ACCU_8                                                  ; $a621 : $c2, $20
 	lda #$004e.w                                                  ; $a623 : $a9, $4e, $00
-	sta $073e.w                                                  ; $a626 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a626 : $8d, $3e, $07
 	php                                                  ; $a629 : $08
-	jsr $02cf43.l                                                  ; $a62a : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a62a : $22, $43, $cf, $02
 	plp                                                  ; $a62e : $28
 	sep #ACCU_8                                                  ; $a62f : $e2, $20
 	stz $130b.w                                                  ; $a631 : $9c, $0b, $13
@@ -5699,14 +5699,14 @@ br_02_a7c5:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $a7f6 : $22, $fa, $d0, $02
 	sep #ACCU_8                                                  ; $a7fa : $e2, $20
 	lda #$02.b                                                  ; $a7fc : $a9, $02
-	sta $0745.w                                                  ; $a7fe : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $a7fe : $8d, $45, $07
 	lda #$05.b                                                  ; $a801 : $a9, $05
-	sta $0743.w                                                  ; $a803 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $a803 : $8d, $43, $07
 	rep #ACCU_8                                                  ; $a806 : $c2, $20
 	lda #$004d.w                                                  ; $a808 : $a9, $4d, $00
-	sta $073e.w                                                  ; $a80b : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a80b : $8d, $3e, $07
 	php                                                  ; $a80e : $08
-	jsr $02cf43.l                                                  ; $a80f : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a80f : $22, $43, $cf, $02
 	plp                                                  ; $a813 : $28
 	lda #$0001.w                                                  ; $a814 : $a9, $01, $00
 	sta $0806.w                                                  ; $a817 : $8d, $06, $08
@@ -5799,9 +5799,9 @@ br_02_a88a:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $a8bf : $22, $fa, $d0, $02
 	rep #ACCU_8                                                  ; $a8c3 : $c2, $20
 	lda #$004f.w                                                  ; $a8c5 : $a9, $4f, $00
-	sta $073e.w                                                  ; $a8c8 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a8c8 : $8d, $3e, $07
 	php                                                  ; $a8cb : $08
-	jsr $02cf43.l                                                  ; $a8cc : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a8cc : $22, $43, $cf, $02
 	plp                                                  ; $a8d0 : $28
 	lda #$003c.w                                                  ; $a8d1 : $a9, $3c, $00
 	sta $063d.w                                                  ; $a8d4 : $8d, $3d, $06
@@ -5862,9 +5862,9 @@ br_02_a90b:
 	jsr FarBufferFromTileMapSpecAndCoords.l                                                  ; $a940 : $22, $fa, $d0, $02
 	rep #ACCU_8                                                  ; $a944 : $c2, $20
 	lda #$004d.w                                                  ; $a946 : $a9, $4d, $00
-	sta $073e.w                                                  ; $a949 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $a949 : $8d, $3e, $07
 	php                                                  ; $a94c : $08
-	jsr $02cf43.l                                                  ; $a94d : $22, $43, $cf, $02
+	jsr Func_2_cf43.l                                                  ; $a94d : $22, $43, $cf, $02
 	plp                                                  ; $a951 : $28
 	lda #$0001.w                                                  ; $a952 : $a9, $01, $00
 	sta $0806.w                                                  ; $a955 : $8d, $06, $08
@@ -8119,12 +8119,12 @@ br_02_b889:
 	bmi br_02_b90d                                                  ; $b8be : $30, $4d
 
 	lda $1bfcbb.l, X                                                  ; $b8c0 : $bf, $bb, $fc, $1b
-	sta $0743.w                                                  ; $b8c4 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $b8c4 : $8d, $43, $07
 	lda $1bfcbc.l, X                                                  ; $b8c7 : $bf, $bc, $fc, $1b
-	sta $0745.w                                                  ; $b8cb : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $b8cb : $8d, $45, $07
 	lda $1bfcbd.l, X                                                  ; $b8ce : $bf, $bd, $fc, $1b
 	rep #ACCU_8                                                  ; $b8d2 : $c2, $20
-	sta $073e.w                                                  ; $b8d4 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $b8d4 : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $b8d7 : $e2, $20
 	lda #$01.b                                                  ; $b8d9 : $a9, $01
 	sta $13a7.w                                                  ; $b8db : $8d, $a7, $13
@@ -8423,7 +8423,7 @@ br_02_ba5c:
 	lda #$12.b                                                  ; $bb12 : $a9, $12
 	sta wTileMapCol.w                                                  ; $bb14 : $8d, $fc, $06
 	lda $1403.w                                                  ; $bb17 : $ad, $03, $14
-	sta $073e.w                                                  ; $bb1a : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $bb1a : $8d, $3e, $07
 	jsr Call_02_bb7c.w                                                  ; $bb1d : $20, $7c, $bb
 	rep #ACCU_8                                                  ; $bb20 : $c2, $20
 	lda #$0000.w                                                  ; $bb22 : $a9, $00, $00
@@ -8477,7 +8477,7 @@ Call_02_bb7c:
 	rep #ACCU_8                                                  ; $bb7c : $c2, $20
 	lda #$0000.w                                                  ; $bb7e : $a9, $00, $00
 	sep #ACCU_8                                                  ; $bb81 : $e2, $20
-	lda $073e.w                                                  ; $bb83 : $ad, $3e, $07
+	lda wTextIdx.w                                                  ; $bb83 : $ad, $3e, $07
 	rep #ACCU_8                                                  ; $bb86 : $c2, $20
 	clc                                                  ; $bb88 : $18
 	adc #$0390.w                                                  ; $bb89 : $69, $90, $03
@@ -8748,25 +8748,25 @@ br_02_bd38:
 	sep #ACCU_8                                                  ; $bd99 : $e2, $20
 	stz $073d.w                                                  ; $bd9b : $9c, $3d, $07
 	lda #$0a.b                                                  ; $bd9e : $a9, $0a
-	sta $0743.w                                                  ; $bda0 : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $bda0 : $8d, $43, $07
 	lda #$02.b                                                  ; $bda3 : $a9, $02
-	sta $0745.w                                                  ; $bda5 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $bda5 : $8d, $45, $07
 	lda $06fb.w                                                  ; $bda8 : $ad, $fb, $06
 	cmp #$02.b                                                  ; $bdab : $c9, $02
 	beq br_02_bdb9                                                  ; $bdad : $f0, $0a
 
 	rep #ACCU_8                                                  ; $bdaf : $c2, $20
 	lda #$0125.w                                                  ; $bdb1 : $a9, $25, $01
-	sta $073e.w                                                  ; $bdb4 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $bdb4 : $8d, $3e, $07
 	bra br_02_bdc1                                                  ; $bdb7 : $80, $08
 
 br_02_bdb9:
 	rep #ACCU_8                                                  ; $bdb9 : $c2, $20
 	lda #$0127.w                                                  ; $bdbb : $a9, $27, $01
-	sta $073e.w                                                  ; $bdbe : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $bdbe : $8d, $3e, $07
 
 br_02_bdc1:
-	jsr Call_02_cf55.w                                                  ; $bdc1 : $20, $55, $cf
+	jsr HandleTextEngine.w                                                  ; $bdc1 : $20, $55, $cf
 	sep #ACCU_8                                                  ; $bdc4 : $e2, $20
 	lda $073d.w                                                  ; $bdc6 : $ad, $3d, $07
 	beq br_02_bdc1                                                  ; $bdc9 : $f0, $f6
@@ -10175,10 +10175,10 @@ Call_02_c7ee:
 	tax                                                  ; $c7f9 : $aa
 	lda #$02.b                                                  ; $c7fa : $a9, $02
 	sta wTileMapCol.w                                                  ; $c7fc : $8d, $fc, $06
-	sta $0743.w                                                  ; $c7ff : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $c7ff : $8d, $43, $07
 	lda $02c818.l, X                                                  ; $c802 : $bf, $18, $c8, $02
 	sta wTileMapRow.w                                                  ; $c806 : $8d, $fd, $06
-	sta $0745.w                                                  ; $c809 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $c809 : $8d, $45, $07
 	jsr Call_02_c98d.w                                                  ; $c80c : $20, $8d, $c9
 	jsr $c81c.w                                                  ; $c80f : $20, $1c, $c8
 	sep #ACCU_8                                                  ; $c812 : $e2, $20
@@ -10393,8 +10393,8 @@ Call_02_c98d:
 	lda $02c9a9.l, X                                                  ; $c998 : $bf, $a9, $c9, $02
 	rep #ACCU_8                                                  ; $c99c : $c2, $20
 	ora #$0100.w                                                  ; $c99e : $09, $00, $01
-	sta $073e.w                                                  ; $c9a1 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $c9a4 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $c9a1 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $c9a4 : $22, $43, $cf, $02
 	rts                                                  ; $c9a8 : $60
 
 
@@ -11156,159 +11156,185 @@ Call_02_cf25:
 br_02_cf42:
 	sei                                                  ; $cf42 : $78
 
-br_02_cf43:
-	jsr Call_02_cf55.w                                                  ; $cf43 : $20, $55, $cf
+
+Func_2_cf43:
+-	jsr HandleTextEngine.w                                                  ; $cf43 : $20, $55, $cf
 	sep #ACCU_8                                                  ; $cf46 : $e2, $20
 	lda $073d.w                                                  ; $cf48 : $ad, $3d, $07
-	beq br_02_cf43                                                  ; $cf4b : $f0, $f6
+	beq -                                                  ; $cf4b : $f0, $f6
 
 	stz $073d.w                                                  ; $cf4d : $9c, $3d, $07
 	rtl                                                  ; $cf50 : $6b
 
 
-	jsr Call_02_cf55.w                                                  ; $cf51 : $20, $55, $cf
+;
+	jsr HandleTextEngine.w                                                  ; $cf51 : $20, $55, $cf
 	rtl                                                  ; $cf54 : $6b
 
 
-Call_02_cf55:
+; wTextIdx.w
+; wTextSrcOffset.w
+; wTextFramesTilNextChar
+; wTextStartingCol
+; wTextTileMapCol
+; wTextStartingRow
+; wTextTileMapRow
+HandleTextEngine:
 	sep #ACCU_8                                                  ; $cf55 : $e2, $20
-	lda $0742.w                                                  ; $cf57 : $ad, $42, $07
-	beq br_02_cf60                                                  ; $cf5a : $f0, $04
+	lda wTextFramesTilNextChar.w                                                  ; $cf57 : $ad, $42, $07
+	beq @processTextBytes                                                  ; $cf5a : $f0, $04
 
-	dec $0742.w                                                  ; $cf5c : $ce, $42, $07
+	dec wTextFramesTilNextChar.w                                                  ; $cf5c : $ce, $42, $07
 	rts                                                  ; $cf5f : $60
 
-
-br_02_cf60:
+@processTextBytes:
+; Preserve flags and data bank
 	sep #ACCU_8                                                  ; $cf60 : $e2, $20
 	php                                                  ; $cf62 : $08
 	phb                                                  ; $cf63 : $8b
 	rep #ACCU_8|IDX_8                                                  ; $cf64 : $c2, $30
+
+; Preserve and set direct page for src data
 	phd                                                  ; $cf66 : $0b
-	lda #$0e00.w                                                  ; $cf67 : $a9, $00, $0e
+	lda #TEXT_ENGINE_DIRECT_PAGE.w                                                  ; $cf67 : $a9, $00, $0e
 	tcd                                                  ; $cf6a : $5b
+
+; Y = offset for current text. Set text src bank
 	phy                                                  ; $cf6b : $5a
-	ldy $0740.w                                                  ; $cf6c : $ac, $40, $07
-	jsr Call_02_d0c6.w                                                  ; $cf6f : $20, $c6, $d0
+	ldy wTextSrcOffset.w                                                  ; $cf6c : $ac, $40, $07
+
+	jsr SetTextSrcBank.w                                                  ; $cf6f : $20, $c6, $d0
+
+; Text idx is double idxed into table and used as a src address for the text data
 	rep #ACCU_8|IDX_8                                                  ; $cf72 : $c2, $30
-	lda $073e.w                                                  ; $cf74 : $ad, $3e, $07
+	lda wTextIdx.w                                                  ; $cf74 : $ad, $3e, $07
 	asl                                                  ; $cf77 : $0a
 	tax                                                  ; $cf78 : $aa
-	lda $03f99a.l, X                                                  ; $cf79 : $bf, $9a, $f9, $03
-	sta $0e00.w                                                  ; $cf7d : $8d, $00, $0e
+	lda TextsData.l, X                                                  ; $cf79 : $bf, $9a, $f9, $03
+	sta wTextEngineSrcAddr.w                                                  ; $cf7d : $8d, $00, $0e
 	tax                                                  ; $cf80 : $aa
 
-br_02_cf81:
+@nextControlByte:
+; A = control byte, jump if $ff
 	rep #ACCU_8                                                  ; $cf81 : $c2, $20
 	lda #$0000.w                                                  ; $cf83 : $a9, $00, $00
 	sep #ACCU_8                                                  ; $cf86 : $e2, $20
-	lda [$00], Y                                                  ; $cf88 : $b7, $00
+	lda [<wTextEngineSrcAddr], Y                                                  ; $cf88 : $b7, $00
 	cmp #$ff.b                                                  ; $cf8a : $c9, $ff
-	beq br_02_cf91                                                  ; $cf8c : $f0, $03
+	beq @ctrlByteFFh                                                  ; $cf8c : $f0, $03
 
-	brl br_02_d093                                                  ; $cf8e : $82, $02, $01
+; Otherwise the byte is a new tile map spec, eg char, to load
+	brl @setTileMapSpecIdx                                                  ; $cf8e : $82, $02, $01
 
-br_02_cf91:
+@ctrlByteFFh:
+; A = next control byte, jump if != 0
 	iny                                                  ; $cf91 : $c8
 	sep #ACCU_8                                                  ; $cf92 : $e2, $20
-	lda [$00], Y                                                  ; $cf94 : $b7, $00
-	bne br_02_cf9b                                                  ; $cf96 : $d0, $03
+	lda [<wTextEngineSrcAddr], Y                                                  ; $cf94 : $b7, $00
+	bne @ctrlByteFF01hPlus                                                  ; $cf96 : $d0, $03
 
-	brl br_02_d079                                                  ; $cf98 : $82, $de, $00
+; $ff, $00 = end
+	brl @textDone                                                  ; $cf98 : $82, $de, $00
 
-br_02_cf9b:
+@ctrlByteFF01hPlus:
+; Branch based on next control byte 1 to 6
 	cmp #$01.b                                                  ; $cf9b : $c9, $01
-	beq br_02_cfc6                                                  ; $cf9d : $f0, $27
+	beq @ctrlByteFF01h_SetStartingCoords                                                  ; $cf9d : $f0, $27
 
 	cmp #$02.b                                                  ; $cf9f : $c9, $02
-	beq br_02_cfd7                                                  ; $cfa1 : $f0, $34
+	beq @ctrlByteFF02h_NextCharRow                                                  ; $cfa1 : $f0, $34
 
 	cmp #$03.b                                                  ; $cfa3 : $c9, $03
-	beq br_02_cfe8                                                  ; $cfa5 : $f0, $41
+	beq @ctrlByteFF03h_SetPalette                                                  ; $cfa5 : $f0, $41
 
 	cmp #$04.b                                                  ; $cfa7 : $c9, $04
-	beq br_02_cffb                                                  ; $cfa9 : $f0, $50
+	beq @ctrlByteFF04h                                                  ; $cfa9 : $f0, $50
 
 	cmp #$05.b                                                  ; $cfab : $c9, $05
-	bne br_02_cfb2                                                  ; $cfad : $d0, $03
+	bne @ctrlByteFF06hPlus                                                  ; $cfad : $d0, $03
 
-	brl br_02_d03d                                                  ; $cfaf : $82, $8b, $00
+	brl @ctrlByteFF05h                                                  ; $cfaf : $82, $8b, $00
 
-br_02_cfb2:
+@ctrlByteFF06hPlus:
 	cmp #$06.b                                                  ; $cfb2 : $c9, $06
-	bne br_02_cfb9                                                  ; $cfb4 : $d0, $03
+	bne @ctrlByteFF07hPlus                                                  ; $cfb4 : $d0, $03
 
-	brl br_02_d05b                                                  ; $cfb6 : $82, $a2, $00
+	brl @ctrlByteFF06h                                                  ; $cfb6 : $82, $a2, $00
 
-br_02_cfb9:
+@ctrlByteFF07hPlus:
 	cmp #$07.b                                                  ; $cfb9 : $c9, $07
-	bne br_02_cfc0                                                  ; $cfbb : $d0, $03
+	bne @ctrlByteFF08hPlus                                                  ; $cfbb : $d0, $03
 
-	brl br_02_d06a                                                  ; $cfbd : $82, $aa, $00
+	brl @ctrlByteFF07h                                                  ; $cfbd : $82, $aa, $00
 
-br_02_cfc0:
+@ctrlByteFF08hPlus:
 	and #$10.b                                                  ; $cfc0 : $29, $10
-	bne br_02_d00c                                                  ; $cfc2 : $d0, $48
+	bne @ctrlByteFF10hPlus                                                  ; $cfc2 : $d0, $48
 
-	bra br_02_d01d                                                  ; $cfc4 : $80, $57
+	bra @ctrlByteFF08hToFF0Fh                                                  ; $cfc4 : $80, $57
 
-br_02_cfc6:
+@ctrlByteFF01h_SetStartingCoords:
+; Simply set plotting coords from preset
 	sep #ACCU_8                                                  ; $cfc6 : $e2, $20
-	lda $0743.w                                                  ; $cfc8 : $ad, $43, $07
-	sta $0744.w                                                  ; $cfcb : $8d, $44, $07
-	lda $0745.w                                                  ; $cfce : $ad, $45, $07
-	sta $0746.w                                                  ; $cfd1 : $8d, $46, $07
+	lda wTextStartingCol.w                                                  ; $cfc8 : $ad, $43, $07
+	sta wTextTileMapCol.w                                                  ; $cfcb : $8d, $44, $07
+	lda wTextStartingRow.w                                                  ; $cfce : $ad, $45, $07
+	sta wTextTileMapRow.w                                                  ; $cfd1 : $8d, $46, $07
 	iny                                                  ; $cfd4 : $c8
-	bra br_02_cf81                                                  ; $cfd5 : $80, $aa
+	bra @nextControlByte                                                  ; $cfd5 : $80, $aa
 
-br_02_cfd7:
+@ctrlByteFF02h_NextCharRow:
+; +2 to tile map row (as chars are 2 tiles high), then reset col
 	sep #ACCU_8                                                  ; $cfd7 : $e2, $20
-	inc $0746.w                                                  ; $cfd9 : $ee, $46, $07
-	inc $0746.w                                                  ; $cfdc : $ee, $46, $07
-	lda $0743.w                                                  ; $cfdf : $ad, $43, $07
-	sta $0744.w                                                  ; $cfe2 : $8d, $44, $07
-	iny                                                  ; $cfe5 : $c8
-	bra br_02_cf81                                                  ; $cfe6 : $80, $99
+	inc wTextTileMapRow.w                                                  ; $cfd9 : $ee, $46, $07
+	inc wTextTileMapRow.w                                                  ; $cfdc : $ee, $46, $07
 
-br_02_cfe8:
+	lda wTextStartingCol.w                                                  ; $cfdf : $ad, $43, $07
+	sta wTextTileMapCol.w                                                  ; $cfe2 : $8d, $44, $07
+	iny                                                  ; $cfe5 : $c8
+	bra @nextControlByte                                                  ; $cfe6 : $80, $99
+
+@ctrlByteFF03h_SetPalette:
+; next byte is or'd to tile attr? (so $10 is palette==4)
 	iny                                                  ; $cfe8 : $c8
 	sep #ACCU_8                                                  ; $cfe9 : $e2, $20
-	lda [$00], Y                                                  ; $cfeb : $b7, $00
+	lda [<wTextEngineSrcAddr], Y                                                  ; $cfeb : $b7, $00
 	rep #ACCU_8                                                  ; $cfed : $c2, $20
 	and #$00ff.w                                                  ; $cfef : $29, $ff, $00
 	xba                                                  ; $cff2 : $eb
 	sta $0703.w                                                  ; $cff3 : $8d, $03, $07
+
 	sep #ACCU_8                                                  ; $cff6 : $e2, $20
 	iny                                                  ; $cff8 : $c8
-	bra br_02_cf81                                                  ; $cff9 : $80, $86
+	bra @nextControlByte                                                  ; $cff9 : $80, $86
 
-br_02_cffb:
+@ctrlByteFF04h:
 	iny                                                  ; $cffb : $c8
 	sep #ACCU_8                                                  ; $cffc : $e2, $20
-	lda [$00], Y                                                  ; $cffe : $b7, $00
-	sta $0742.w                                                  ; $d000 : $8d, $42, $07
+	lda [<wTextEngineSrcAddr], Y                                                  ; $cffe : $b7, $00
+	sta wTextFramesTilNextChar.w                                                  ; $d000 : $8d, $42, $07
 	iny                                                  ; $d003 : $c8
 	rep #ACCU_8                                                  ; $d004 : $c2, $20
-	sty $0740.w                                                  ; $d006 : $8c, $40, $07
-	brl br_02_d0bb                                                  ; $d009 : $82, $af, $00
+	sty wTextSrcOffset.w                                                  ; $d006 : $8c, $40, $07
+	brl @end_d0bb                                                  ; $d009 : $82, $af, $00
 
-br_02_d00c:
+@ctrlByteFF10hPlus:
 	sep #ACCU_8                                                  ; $d00c : $e2, $20
-	lda [$00], Y                                                  ; $d00e : $b7, $00
+	lda [<wTextEngineSrcAddr], Y                                                  ; $d00e : $b7, $00
 	and #$0f.b                                                  ; $d010 : $29, $0f
 	clc                                                  ; $d012 : $18
-	adc $0744.w                                                  ; $d013 : $6d, $44, $07
-	sta $0744.w                                                  ; $d016 : $8d, $44, $07
+	adc wTextTileMapCol.w                                                  ; $d013 : $6d, $44, $07
+	sta wTextTileMapCol.w                                                  ; $d016 : $8d, $44, $07
 	iny                                                  ; $d019 : $c8
-	brl br_02_cf81                                                  ; $d01a : $82, $64, $ff
+	brl @nextControlByte                                                  ; $d01a : $82, $64, $ff
 
-br_02_d01d:
+@ctrlByteFF08hToFF0Fh:
 	sep #ACCU_8                                                  ; $d01d : $e2, $20
-	lda [$00], Y                                                  ; $d01f : $b7, $00
+	lda [<wTextEngineSrcAddr], Y                                                  ; $d01f : $b7, $00
 	and #$0f.b                                                  ; $d021 : $29, $0f
 	sta $0747.w                                                  ; $d023 : $8d, $47, $07
 	iny                                                  ; $d026 : $c8
-	lda [$00], Y                                                  ; $d027 : $b7, $00
+	lda [<wTextEngineSrcAddr], Y                                                  ; $d027 : $b7, $00
 	sta $0748.w                                                  ; $d029 : $8d, $48, $07
 	iny                                                  ; $d02c : $c8
 	dec $0747.w                                                  ; $d02d : $ce, $47, $07
@@ -11316,17 +11342,17 @@ br_02_d01d:
 	rep #ACCU_8                                                  ; $d033 : $c2, $20
 	and #$00ff.w                                                  ; $d035 : $29, $ff, $00
 	sta wTileMapSpecIdx.w                                                  ; $d038 : $8d, $fe, $06
-	bra br_02_d099                                                  ; $d03b : $80, $5c
+	bra @yieldFromENgine                                                  ; $d03b : $80, $5c
 
-br_02_d03d:
+@ctrlByteFF05h:
 	sep #ACCU_8                                                  ; $d03d : $e2, $20
 	lda $0747.w                                                  ; $d03f : $ad, $47, $07
-	bne br_02_d048                                                  ; $d042 : $d0, $04
+	bne @br_d048                                                  ; $d042 : $d0, $04
 
 	iny                                                  ; $d044 : $c8
-	brl br_02_cf81                                                  ; $d045 : $82, $39, $ff
+	brl @nextControlByte                                                  ; $d045 : $82, $39, $ff
 
-br_02_d048:
+@br_d048:
 	dey                                                  ; $d048 : $88
 	sep #ACCU_8                                                  ; $d049 : $e2, $20
 	dec $0747.w                                                  ; $d04b : $ce, $47, $07
@@ -11334,63 +11360,69 @@ br_02_d048:
 	rep #ACCU_8                                                  ; $d051 : $c2, $20
 	and #$00ff.w                                                  ; $d053 : $29, $ff, $00
 	sta wTileMapSpecIdx.w                                                  ; $d056 : $8d, $fe, $06
-	bra br_02_d099                                                  ; $d059 : $80, $3e
+	bra @yieldFromENgine                                                  ; $d059 : $80, $3e
 
-br_02_d05b:
+@ctrlByteFF06h:
 	iny                                                  ; $d05b : $c8
 	sep #ACCU_8                                                  ; $d05c : $e2, $20
-	lda [$00], Y                                                  ; $d05e : $b7, $00
-	sta $0743.w                                                  ; $d060 : $8d, $43, $07
-	sta $0744.w                                                  ; $d063 : $8d, $44, $07
+	lda [<wTextEngineSrcAddr], Y                                                  ; $d05e : $b7, $00
+	sta wTextStartingCol.w                                                  ; $d060 : $8d, $43, $07
+	sta wTextTileMapCol.w                                                  ; $d063 : $8d, $44, $07
 	iny                                                  ; $d066 : $c8
-	brl br_02_cf81                                                  ; $d067 : $82, $17, $ff
+	brl @nextControlByte                                                  ; $d067 : $82, $17, $ff
 
-br_02_d06a:
+@ctrlByteFF07h:
 	iny                                                  ; $d06a : $c8
 	sep #ACCU_8                                                  ; $d06b : $e2, $20
-	lda [$00], Y                                                  ; $d06d : $b7, $00
-	sta $0745.w                                                  ; $d06f : $8d, $45, $07
-	sta $0746.w                                                  ; $d072 : $8d, $46, $07
+	lda [<wTextEngineSrcAddr], Y                                                  ; $d06d : $b7, $00
+	sta wTextStartingRow.w                                                  ; $d06f : $8d, $45, $07
+	sta wTextTileMapRow.w                                                  ; $d072 : $8d, $46, $07
 	iny                                                  ; $d075 : $c8
-	brl br_02_cf81                                                  ; $d076 : $82, $08, $ff
+	brl @nextControlByte                                                  ; $d076 : $82, $08, $ff
 
-br_02_d079:
+@textDone:
 	sep #ACCU_8                                                  ; $d079 : $e2, $20
 	lda #$01.b                                                  ; $d07b : $a9, $01
 	sta $073d.w                                                  ; $d07d : $8d, $3d, $07
-	stz $0742.w                                                  ; $d080 : $9c, $42, $07
+	stz wTextFramesTilNextChar.w                                                  ; $d080 : $9c, $42, $07
 	stz $0747.w                                                  ; $d083 : $9c, $47, $07
 	stz $0748.w                                                  ; $d086 : $9c, $48, $07
 	rep #ACCU_8                                                  ; $d089 : $c2, $20
-	stz $073e.w                                                  ; $d08b : $9c, $3e, $07
-	stz $0740.w                                                  ; $d08e : $9c, $40, $07
-	bra br_02_d0bb                                                  ; $d091 : $80, $28
+	stz wTextIdx.w                                                  ; $d08b : $9c, $3e, $07
+	stz wTextSrcOffset.w                                                  ; $d08e : $9c, $40, $07
+	bra @end_d0bb                                                  ; $d091 : $80, $28
 
-br_02_d093:
+@setTileMapSpecIdx:
 	iny                                                  ; $d093 : $c8
 	rep #ACCU_8                                                  ; $d094 : $c2, $20
 	sta wTileMapSpecIdx.w                                                  ; $d096 : $8d, $fe, $06
 
-br_02_d099:
+@yieldFromENgine:
+; Save offset into text data
 	rep #ACCU_8                                                  ; $d099 : $c2, $20
-	sty $0740.w                                                  ; $d09b : $8c, $40, $07
+	sty wTextSrcOffset.w                                                  ; $d09b : $8c, $40, $07
+
+; Restore Y, direct page, data bank and flags
 	ply                                                  ; $d09e : $7a
 	rep #ACCU_8                                                  ; $d09f : $c2, $20
 	pld                                                  ; $d0a1 : $2b
 	sep #ACCU_8                                                  ; $d0a2 : $e2, $20
 	plb                                                  ; $d0a4 : $ab
 	plp                                                  ; $d0a5 : $28
+
+; Go to next tilemap col
 	sep #ACCU_8                                                  ; $d0a6 : $e2, $20
-	lda $0744.w                                                  ; $d0a8 : $ad, $44, $07
+	lda wTextTileMapCol.w                                                  ; $d0a8 : $ad, $44, $07
 	sta wTileMapCol.w                                                  ; $d0ab : $8d, $fc, $06
-	inc $0744.w                                                  ; $d0ae : $ee, $44, $07
-	lda $0746.w                                                  ; $d0b1 : $ad, $46, $07
+	inc wTextTileMapCol.w                                                  ; $d0ae : $ee, $44, $07
+
+; Set tilemap row, then display tilemap spec for char
+	lda wTextTileMapRow.w                                                  ; $d0b1 : $ad, $46, $07
 	sta wTileMapRow.w                                                  ; $d0b4 : $8d, $fd, $06
 	jsr BufferFromTileMapSpecAndCoords.w                                                  ; $d0b7 : $20, $fe, $d0
 	rts                                                  ; $d0ba : $60
 
-
-br_02_d0bb:
+@end_d0bb:
 	rep #ACCU_8                                                  ; $d0bb : $c2, $20
 	ply                                                  ; $d0bd : $7a
 	rep #ACCU_8                                                  ; $d0be : $c2, $20
@@ -11401,42 +11433,43 @@ br_02_d0bb:
 	rts                                                  ; $d0c5 : $60
 
 
-Call_02_d0c6:
-	sep #ACCU_8                                                  ; $d0c6 : $e2, $20
-	stz wTileMapSrcBankOffsFrom0ch.w                                                  ; $d0c8 : $9c, $36, $06
-	rep #IDX_8                                                  ; $d0cb : $c2, $10
-	ldx #$0000.w                                                  ; $d0cd : $a2, $00, $00
+; wTextIdx.w - from 0 to $2bc
+SetTextSrcBank:
+; Text data begins at bank $18, X = offset in table below
+	sep #ACCU_8                                                               ; $d0c6 : $e2, $20
+	stz wTileMapSrcBankOffsFrom0ch.w                                          ; $d0c8 : $9c, $36, $06
+	rep #IDX_8                                                                ; $d0cb : $c2, $10
+	ldx #$0000.w                                                              ; $d0cd : $a2, $00, $00
 
-br_02_d0d0:
-	rep #ACCU_8                                                  ; $d0d0 : $c2, $20
-	lda $073e.w                                                  ; $d0d2 : $ad, $3e, $07
-	cmp $02d0f0.l, X                                                  ; $d0d5 : $df, $f0, $d0, $02
-	bcc br_02_d0e4                                                  ; $d0d9 : $90, $09
+@nextBank:
+; If current spec idx >= a table entry...
+	rep #ACCU_8                                                               ; $d0d0 : $c2, $20
+	lda wTextIdx.w                                                            ; $d0d2 : $ad, $3e, $07
+	cmp @textIdxesAtBankStart.l, X                                            ; $d0d5 : $df, $f0, $d0, $02
+	bcc @gotBank                                                              ; $d0d9 : $90, $09
 
-	sep #ACCU_8                                                  ; $d0db : $e2, $20
-	inc wTileMapSrcBankOffsFrom0ch.w                                                  ; $d0dd : $ee, $36, $06
-	inx                                                  ; $d0e0 : $e8
-	inx                                                  ; $d0e1 : $e8
-	bra br_02_d0d0                                                  ; $d0e2 : $80, $ec
+; Go to next src bank, and X += 2 to go to next table entry
+	sep #ACCU_8                                                               ; $d0db : $e2, $20
+	inc wTileMapSrcBankOffsFrom0ch.w                                          ; $d0dd : $ee, $36, $06
+	inx                                                                       ; $d0e0 : $e8
+	inx                                                                       ; $d0e1 : $e8
+	bra @nextBank                                                             ; $d0e2 : $80, $ec
 
-br_02_d0e4:
-	sep #ACCU_8                                                  ; $d0e4 : $e2, $20
-	lda wTileMapSrcBankOffsFrom0ch.w                                                  ; $d0e6 : $ad, $36, $06
-	clc                                                  ; $d0e9 : $18
-	adc #$18.b                                                  ; $d0ea : $69, $18
-	sta $0e02.w                                                  ; $d0ec : $8d, $02, $0e
-	rts                                                  ; $d0ef : $60
+@gotBank:
+; Get inc'd offset and offset for text src bank
+	sep #ACCU_8                                                               ; $d0e4 : $e2, $20
+	lda wTileMapSrcBankOffsFrom0ch.w                                          ; $d0e6 : $ad, $36, $06
+	clc                                                                       ; $d0e9 : $18
+	adc #TEXT_ENGINE_BANKS_START.b                                            ; $d0ea : $69, $18
+	sta wTextEngineSrcAddr.w+2                                               ; $d0ec : $8d, $02, $0e
+	rts                                                                       ; $d0ef : $60
 
-
-Call_02_d0f0:
-	bvs br_02_d0f2                                                  ; $d0f0 : $70, $00
-
-br_02_d0f2:
-	asl                                                  ; $d0f2 : $0a
-	ora ($28, X)                                                  ; $d0f3 : $01, $28
-	cop $f0.b                                                  ; $d0f5 : $02, $f0
-	ora $f0, S                                                  ; $d0f7 : $03, $f0
-	.db $03
+@textIdxesAtBankStart:
+	.dw (TextsData@bank19h-TextsData)/2 ; $070
+	.dw (TextsData@bank1ah-TextsData)/2 ; $10a
+	.dw (TextsData@bank1bh-TextsData)/2 ; $228
+	.dw $3f0 ; way past bank end
+	.dw $3f0
 
 
 ; wTileMapCol - starting tile col
@@ -11666,7 +11699,7 @@ BufferFromTileMapSpecAndCoords:
 	brl @nextControlByte                                                  ; $d22d : $82, $02, $ff
 
 
-; wTileMapSpecIdx.w - from 0 to $6bf
+; wTileMapSpecIdx.w - from 0 to $3bf
 SetTileMapSrcBank:
 ; Tile map specs begin at bank $0c, X = offset in table below
 	sep #ACCU_8                                                               ; $d230 : $e2, $20
@@ -11676,7 +11709,7 @@ SetTileMapSrcBank:
 	ldx #$0000.w                                                              ; $d237 : $a2, $00, $00
 
 @nextBank:
-; If current spec idx > a table entry...
+; If current spec idx >= a table entry...
 	rep #ACCU_8                                                               ; $d23a : $c2, $20
 	lda wTileMapSpecIdx.w                                                     ; $d23c : $ad, $fe, $06
 	cmp @tileMapSpecIdxesAtBanksStart.l, X                                    ; $d23f : $df, $5a, $d2, $02
@@ -15938,7 +15971,7 @@ br_02_ef06:
 	tax                                                  ; $ef1d : $aa
 	lda $02f02b.l, X                                                  ; $ef1e : $bf, $2b, $f0, $02
 	rep #ACCU_8                                                  ; $ef22 : $c2, $20
-	sta $073e.w                                                  ; $ef24 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $ef24 : $8d, $3e, $07
 	rtl                                                  ; $ef27 : $6b
 
 
@@ -15977,7 +16010,7 @@ br_02_ef06:
 
 
 	rep #ACCU_8                                                  ; $ef77 : $c2, $20
-	lda $073e.w                                                  ; $ef79 : $ad, $3e, $07
+	lda wTextIdx.w                                                  ; $ef79 : $ad, $3e, $07
 	tax                                                  ; $ef7c : $aa
 	rep #ACCU_8                                                  ; $ef7d : $c2, $20
 	lda #$0000.w                                                  ; $ef7f : $a9, $00, $00
@@ -15996,15 +16029,15 @@ br_02_ef06:
 
 br_02_ef9d:
 	rep #ACCU_8                                                  ; $ef9d : $c2, $20
-	sta $073e.w                                                  ; $ef9f : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $ef9f : $8d, $3e, $07
 	sep #ACCU_8                                                  ; $efa2 : $e2, $20
 	stz $073d.w                                                  ; $efa4 : $9c, $3d, $07
 	inc $1360.w                                                  ; $efa7 : $ee, $60, $13
 	stz $0632.w                                                  ; $efaa : $9c, $32, $06
 	lda #$09.b                                                  ; $efad : $a9, $09
-	sta $0743.w                                                  ; $efaf : $8d, $43, $07
+	sta wTextStartingCol.w                                                  ; $efaf : $8d, $43, $07
 	lda #$02.b                                                  ; $efb2 : $a9, $02
-	sta $0745.w                                                  ; $efb4 : $8d, $45, $07
+	sta wTextStartingRow.w                                                  ; $efb4 : $8d, $45, $07
 
 br_02_efb7:
 	rtl                                                  ; $efb7 : $6b
@@ -16014,7 +16047,7 @@ br_02_efb7:
 	lda $073d.w                                                  ; $efba : $ad, $3d, $07
 	bne br_02_efc3                                                  ; $efbd : $d0, $04
 
-	jsr Call_02_cf55.w                                                  ; $efbf : $20, $55, $cf
+	jsr HandleTextEngine.w                                                  ; $efbf : $20, $55, $cf
 	rtl                                                  ; $efc2 : $6b
 
 
@@ -16259,7 +16292,7 @@ br_02_f167:
 	beq br_02_f179                                                  ; $f16c : $f0, $0b
 
 	lda $1837.w, Y                                                  ; $f16e : $b9, $37, $18
-	sta $073e.w                                                  ; $f171 : $8d, $3e, $07
+	sta wTextIdx.w                                                  ; $f171 : $8d, $3e, $07
 	phy                                                  ; $f174 : $5a
 	jsr Call_02_f181.w                                                  ; $f175 : $20, $81, $f1
 	ply                                                  ; $f178 : $7a
@@ -16286,7 +16319,7 @@ Call_02_f181:
 	sta $0e00.w                                                  ; $f196 : $8d, $00, $0e
 	lda #$0000.w                                                  ; $f199 : $a9, $00, $00
 	sep #ACCU_8                                                  ; $f19c : $e2, $20
-	lda $073e.w                                                  ; $f19e : $ad, $3e, $07
+	lda wTextIdx.w                                                  ; $f19e : $ad, $3e, $07
 	asl                                                  ; $f1a1 : $0a
 	sta $0e11.w                                                  ; $f1a2 : $8d, $11, $0e
 	asl                                                  ; $f1a5 : $0a

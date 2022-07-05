@@ -21,9 +21,13 @@
 
             let greyCols = [];
             for (let idx = 0; idx < 16; idx++) {
-                let greyCol = idx * 17;
+                // let greyCol = idx * 17;
+                let greyCol = 5 * 17;
                 greyCols.push([greyCol, greyCol, greyCol]);
             }
+            greyCols[1] = [0xff, 0xff, 0xff];
+            greyCols[2] = [0x00, 0x00, 0x00];
+            greyCols[3] = [0x77, 0x77, 0x77];
 
             const urlParams = new URLSearchParams(window.location.search);
             const stageIdx = urlParams.get('stage') || 1;
@@ -210,7 +214,11 @@
                             }
                         } else if (ctrlByte < 0x40) {
                             // same byte copy
-                            throw new Error('tile map ctrl byte 20+');
+                            let sameByte = this.rom[src++];
+                            while (low5-- !== 0) {
+                                this.mem7eh[dest+colI++] = sameByte;
+                                this.mem7eh[dest+colI++] = attr;
+                            }
                         } else if (ctrlByte < 0x60) {
                             //
                             throw new Error('tile map ctrl byte 40+');
@@ -226,6 +234,48 @@
                             attr = (attr & 0xe3) | low5;
                         }
                         ctrlByte = this.rom[src++];
+                    }
+                }
+
+                TextEngine(col, row, specIdx) {
+                    let srcBank = 0x18;
+                    let bankStartSpecIdxes = bankConv(2, 0xd0f0);
+                    while (specIdx >= this.wordIn(bankStartSpecIdxes)) {
+                        srcBank++;
+                        bankStartSpecIdxes += 2;
+                    }
+                    let srcAddr = this.wordIn(bankConv(3, 0xf99a+specIdx*2));
+                    let src = bankConv(srcBank, srcAddr);
+                    let colI = 0;
+
+                    let maxLoops = 1000;
+                    let end = false;
+                    while (maxLoops-- !== 0) {
+                        let ctrlByte = this.rom[src++];
+                        if (ctrlByte == 0xff) {
+                            let ctrlByte2 = this.rom[src++];
+                            switch (ctrlByte2) {
+                                case 0:
+                                    end = true;
+                                    break;
+                                case 1:
+                                    // preset coords
+                                    break;
+                                case 2:
+                                    // next row
+                                    row += 2;
+                                    colI = 0;
+                                    break;
+                                case 3:
+                                    // set palette
+                                    src++;
+                                    break;
+                            }
+                        } else {
+                            this.LoadTileMapSpec(col+colI++, row, ctrlByte);
+                        }
+
+                        if (end) break;
                     }
                 }
 
@@ -378,11 +428,8 @@
                             name: "Test",
                             sources: [
                                 ["RLEDecompressBlock", 0],
-                                ["LoadTileMapSpec", 0x5, 0x6, 0x206],
-                                ["LoadTileMapSpec", 0x18, 0x8, 0x207],
-                                ["LoadTileMapSpec", 0xd, 0x15, 0x20d],
-                                ["LoadTileMapSpec", 0xc, 0x15, 0xbe],
-                                ["TileData", 0x2000, 0x10000],
+                                ["TextEngine", 0x1, 0x1, 0x173],
+                                // ["TileData", 0x2000, 0x10000],
                                 ["TileMap", 0],
                             ]
                         }
@@ -390,6 +437,7 @@
                 },
                 methods: {
                     loadData: function() {
+                        // RLE tile data
                         // for (let i = 0; i < 96; i++) {
                         //     // if ([0,2,3,4,7,28,33,77,88].indexOf(i) === -1) continue;
                         //     this.screens.push({
@@ -400,6 +448,8 @@
                         //         ]
                         //     })
                         // }
+
+                        // RLE block sets
                         // for (let i = 0; i < 0xe; i++) {
                         //     this.screens.push({
                         //         name: `RLE block idx ${hexc(i)}`,
@@ -409,6 +459,26 @@
                         //         ]
                         //     })
                         // }
+
+                        // Ascii tileset
+                        // let sources = [
+                        //     ["RLEDecompressBlock", 0],
+                        // ];
+                        // for (let i = 0x20; i < 0x100; i++) {
+                        //     let row = Math.floor(i/16);
+                        //     let col = i%16;
+                        //     sources.push(["LoadTileMapSpec", col*2, row*2, i]);
+                        // };
+                        // for (let i = 0x20; i < 0x100; i++) {
+                        //     let row = Math.floor(i/16);
+                        //     let col = i%16;
+                        //     sources.push(["LoadTileMapSpec", col*2+1, row*2, 0x5f]);
+                        // }
+                        // sources.push(["TileMap", 0]);
+                        // this.screens.push({
+                        //     name: "Chars",
+                        //     sources: sources,
+                        // });
                         fetch('/superUno.sfc')
                             .then(response => checkStatus(response) && response.arrayBuffer())
                             .then(buffer => {

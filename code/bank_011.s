@@ -1705,7 +1705,7 @@ br_11_8d57:
 
 	.db $00                                                  ; $8d5d : $00
 	tdc                                                  ; $8d5e : $7b
-	trb $073e.w                                                  ; $8d5f : $1c, $3e, $07
+	trb wTextIdx.w                                                  ; $8d5f : $1c, $3e, $07
 	adc $00fe83.l, X                                                  ; $8d62 : $7f, $83, $fe, $00
 	adc $fffe3e.l, X                                                  ; $8d66 : $7f, $3e, $fe, $ff
 	inc $fe16.w, X                                                  ; $8d6a : $fe, $16, $fe

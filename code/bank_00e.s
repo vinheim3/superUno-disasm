@@ -16145,8 +16145,8 @@ Call_0e_f2c5:
 	tax                                                  ; $f2d1 : $aa
 	rep #ACCU_8                                                  ; $f2d2 : $c2, $20
 	lda $0ef31d.l, X                                                  ; $f2d4 : $bf, $1d, $f3, $0e
-	sta $073e.w                                                  ; $f2d8 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $f2db : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $f2d8 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $f2db : $22, $43, $cf, $02
 	plx                                                  ; $f2df : $fa
 	rts                                                  ; $f2e0 : $60
 
@@ -16164,8 +16164,8 @@ Call_0e_f2e5:
 	tax                                                  ; $f2f0 : $aa
 	rep #ACCU_8                                                  ; $f2f1 : $c2, $20
 	lda $0ef33f.l, X                                                  ; $f2f3 : $bf, $3f, $f3, $0e
-	sta $073e.w                                                  ; $f2f7 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $f2fa : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $f2f7 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $f2fa : $22, $43, $cf, $02
 	rts                                                  ; $f2fe : $60
 
 
@@ -16182,8 +16182,8 @@ Call_0e_f303:
 	tax                                                  ; $f30e : $aa
 	rep #ACCU_8                                                  ; $f30f : $c2, $20
 	lda $0ef347.l, X                                                  ; $f311 : $bf, $47, $f3, $0e
-	sta $073e.w                                                  ; $f315 : $8d, $3e, $07
-	jsr $02cf43.l                                                  ; $f318 : $22, $43, $cf, $02
+	sta wTextIdx.w                                                  ; $f315 : $8d, $3e, $07
+	jsr Func_2_cf43.l                                                  ; $f318 : $22, $43, $cf, $02
 	rts                                                  ; $f31c : $60
 
 
